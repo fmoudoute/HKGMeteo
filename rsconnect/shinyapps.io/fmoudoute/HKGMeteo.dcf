@@ -1,0 +1,10 @@
+name: HKGMeteo
+title: HKGMeteo
+account: fmoudoute
+server: shinyapps.io
+appId: 256862
+bundleId: 1176094
+url: https://fmoudoute.shinyapps.io/HKGMeteo/
+when: 1515977607.15394
+asMultiple: FALSE
+asStatic: FALSE
