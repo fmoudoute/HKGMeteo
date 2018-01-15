@@ -1,0 +1,54 @@
+HKMeteoProject
+========================================================
+author: Frantz
+date: 2018-01-15
+autosize: true
+
+Analysis of Hong Kong Air Pollutants
+========================================================
+
+This presentation contains documentation for the HK Meteo Project application. The aplication is available via the following link:  (https://fmoudoute.shinyapps.io/HKGMeteo/)
+
+This application will build a  linear regression model dynamicall based on the pollutants selected by the user and provide a chart with a trend line indicating the relationship between the two variables.
+
+
+Data For the HK Meteo Project
+========================================================
+
+Our Data are the historical hour by hour level of pollutant observed in Central Hong Kong between 1990 and 2017.
+Several days have been removed as some the data source was showing incomplete rows ("NAs")
+
+```{r, echo = FALSE}
+MegaReport <- read.csv(file = "C:/Users/Frantz/CloudStation/Documents/R/Shiny/HKGMeteo/Data/Mega.csv", header = TRUE) 
+HeadData <- head(MegaReport)
+HeadData[1] <- NULL
+print(HeadData)
+
+Cellules <- as.data.frame(nrow(MegaReport))
+Colonnes <- ncol(MegaReport)
+
+print(paste("Number of rows:", Cellules))
+print(paste("Number of variables:", Colonnes))
+
+```
+
+
+Files
+========================================================
+
+2-file based application:
+- `ui.R`
+- `server.R`
+
+Files are available at : https://github.com/fmoudoute/HKGMeteo
+
+
+Application - How to use
+========================================================
+- The user selects the pollutant for which he/she would like to see the relationship using "selectInput".
+- The selected pollutants will be passed on to R as variables.
+- The Chart will automatically update according to the pollutants which were selected (axis, and title).
+- The user can also have a quick look at the mean of the variables on the sidepanel.
+- As an option, the axis means and the linear regression line can be added to the chart using "checkboxInput".
+- We also offer a preview of the dataset just for educational purpose. 
+- The main panel indicate the location of which the data are being analyse using leaflet package.
